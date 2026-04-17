@@ -24,7 +24,7 @@ const DAYS = [
       { name:"JINS Subnade", area:"Shinjuku", cat:"Shopping", addr:"Subnade B1F, 1 Kabukicho 160-0021", hrs:"10:30AM–9:00PM", note:"Get glasses sorted. Ready in ~30 min", transit:{ line:"Walk", from:"Hotel", to:"Subnade", dur:"10 min walk north" }},
       { name:"Fūunji", area:"Shinjuku", cat:"Food", addr:"Hokuto Bldg 1F, 2-14-3 Yoyogi 151-0053", hrs:"11:00AM–3:00PM, 5:00PM–9:00PM", note:"⚠️ CASH ONLY. Bring ¥1,200+. Vending machine order. Queue moves fast", transit:{ line:"Walk", from:"Subnade", to:"Fūunji", dur:"10 min walk south" }},
       { name:"Keio Mall", area:"Shinjuku", cat:"Shopping", addr:"1-1 Nishishinjuku 160-0023", hrs:"10:00AM–10:00PM", note:"Optional browse if you have energy", transit:{ line:"Walk", from:"Fūunji", to:"Keio Mall", dur:"5 min walk" }},
-      { name:"Don Quijote Shinjuku", area:"Shinjuku", cat:"Shopping", addr:"3-36-16 Shinjuku 160-0022", hrs:"24h", note:"Fallback if Keio Mall closed. Always open", transit:{ line:"Walk", from:"Keio Mall", to:"Don Quijote", dur:"7 min walk" }},
+      { name:"Don Quijote Shinjuku", area:"Shinjuku", cat:"Shopping", addr:"1-16-5 Kabukicho 160-0021", hrs:"24h", note:"Fallback if Keio Mall closed. Always open", transit:{ line:"Walk", from:"Keio Mall", to:"Don Quijote", dur:"7 min walk" }},
       { name:"7-Eleven (near hotel)", area:"Shinjuku", cat:"Convenience", addr:"2-8-3 Yoyogi 151-0053", hrs:"24h", note:"Snacks, drinks, supper backup", transit:{ line:"Walk", from:"—", to:"Hotel area", dur:"3 min walk" }},
     ]},
 
@@ -55,7 +55,7 @@ const DAYS = [
       { name:"Marui Main", area:"Shinjuku", cat:"Shopping", addr:"3-30-13 Shinjuku 160-0022", hrs:"11:00AM–8:00PM", note:"Apple Store, pop-ups", transit:{ line:"Walk", from:"Isetan", to:"Marui", dur:"2 min" }},
       { name:"Marui Annex", area:"Shinjuku", cat:"Shopping", addr:"3-1-26 Shinjuku 160-0022", hrs:"11:00AM–8:00PM", note:"Cut if tired", transit:{ line:"Walk", from:"Marui Main", to:"Annex", dur:"3 min" }},
       { name:"Subnade", area:"Shinjuku", cat:"Shopping", addr:"1-22 Kabukicho 160-0021", hrs:"10:30AM–9:00PM", note:"Underground. JINS, Daiso, Zoff, Honeys. Cut if tired", transit:{ line:"Walk", from:"Annex", to:"Subnade", dur:"5 min" }},
-      { name:"Dinner — Ginza Happo", area:"Shinjuku", cat:"Dinner", addr:"3-9-4 Shinjuku 160-0022", hrs:"11:30AM–10:00PM", note:"Japanese cuisine. Last seating ~8PM", transit:{ line:"Walk", from:"Subnade", to:"Restaurant", dur:"5 min" }},
+      { name:"Dinner — Ginza Happo", area:"Shinjuku", cat:"Dinner", addr:"Oriental Wave Bldg 3F, 5-17-13 Shinjuku 160-0022", hrs:"11:30AM–10:00PM", note:"Japanese cuisine. Last seating ~8PM", transit:{ line:"Walk", from:"Subnade", to:"Restaurant", dur:"5 min" }},
     ]},
 
   { id:"d3", date:"Sun 19 Apr", title:"Harajuku → Akasaka", icon:"⚡",
@@ -195,8 +195,8 @@ export default function App(){
 
   const nextStop=useMemo(()=>day.stops.find(s=>!visited[day.id+":"+s.name]),[day,visited]);
 
-  const mapsUrl=(n,a)=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(n+", "+a)}`;
-  const dirUrl=(n,a)=>`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(n+", "+a)}&travelmode=transit`;
+  const mapsUrl=(n,a)=>`https://maps.apple.com/?q=${encodeURIComponent(n+", "+a)}`;
+  const dirUrl=(n,a)=>`https://maps.apple.com/?daddr=${encodeURIComponent(n+", "+a)}&dirflg=r`;
 
   return(
     <div style={{minHeight:"100vh",background:"#0c0a09",color:"#fafaf9",fontFamily:"'SF Pro Display',-apple-system,'Segoe UI',sans-serif"}}>
